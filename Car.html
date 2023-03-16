@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор стоимости автомобиля</title>
+    <link rel="stylesheet" href="Car.css" />
+    <link rel="stylesheet" href="Нормализация.css" />
+</head>
+<body>
+    <h2 class="anketa">Калькулятор стоимости автомобиля</h2>
+    <div class="calculator" novalidate>
+        <div class="car-brand">
+          <label for="carBrand">Марка автомобиля:</label>
+          <select
+            name="carBrand"
+            id="carBrand"
+            onchange="setCarModel(this.value)">
+            <option value="1">Reno</option>
+            <option value="2">Opel</option>
+            <option value="3">Mazda</option>
+            <option value="4">Jaguar</option>
+          </select>
+        </div>
+  
+        <div class="car-model">
+          <label for="carModel">Модель автомобиля:</label>
+          <select name="carModel" id="carModel">
+            <option value="1">Lada Granta</option>
+            <option value="2">Lada Vesta</option>
+            <option value="3">Kia Rio</option>
+            <option value="4">Hyundai Creta</option>
+          </select>
+        </div>
+  
+        <div class="fuel-type">
+          <div class="radio-label">Тип топлива:</div>
+          <input
+            type="radio"
+            id="petrol"
+            name="fuelType"
+            value="petrol"
+            checked/>
+          <label for="petrol">Бензин</label><br />
+          <input type="radio" id="diesel" name="fuelType" value="diesel" />
+          <label for="diesel">Дизель</label><br />
+          <input type="radio" id="gas" name="fuelType" value="gas" />
+          <label for="gas">Газ</label><br />
+          <input
+            type="radio"
+            id="electricity"
+            name="fuelType"
+            value="electricity"/>
+          <label for="electricity">Электричество</label>
+        </div>
+  
+        <div class="engine-volume">
+          <label for="engineVolume">Объём двигателя (от 1.1 л до 3.5 л):</label>
+          <input
+            type="number"
+            id="engineVolume"
+            name="engineVolume"
+            min="1.1"
+            max="3.5"
+            step="0.01"
+            required/>
+          <div class="error-message" id="errorMessage"></div>
+        </div>
+  
+        <div class="condition" onclick="showRadioGroup()">
+          <div class="radio-label">Состояние автомобиля:</div>
+          <input type="radio" id="new" name="condition" value="new" checked />
+          <label for="new">Новый</label><br />
+          <input type="radio" id="used" name="condition" value="used" />
+          <label for="used">Подержанный</label>
+        </div>
+  
+        <div class="owners" id="owners">
+          <div class="radio-label">Количество владельцев автомобиля:</div>
+          <input type="radio" id="oneTwo" name="owners" value="oneTwo" checked />
+          <label for="oneTwo">1–2 владельца</label><br />
+          <input type="radio" id="threePlus" name="owners" value="threePlus" />
+          <label for="threePlus">3 и более владельца</label>
+        </div>
+  
+        <div class="payment-method">
+          <div class="radio-label">Способ оплаты:</div>
+          <input
+            type="radio"
+            id="card"
+            name="paymentMethod"
+            value="card"
+            checked/>
+          <label for="card">Картой</label><br />
+          <input type="radio" id="cash" name="paymentMethod" value="cash" />
+          <label for="cash">Наличными</label><br />
+          <input type="radio" id="invoice" name="paymentMethod" value="invoice" />
+          <label for="invoice">Счёт на юридическое лицо</label>
+        </div>
+  
+        <div class="errors-info" id="errors-info"></div>
+  
+        <button type="button" onclick="checkAll()">Рассчитать</button>
+        <div class="result" id="result"></div>
+    </div>
+</body>
+</html>
